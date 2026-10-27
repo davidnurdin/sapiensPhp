@@ -1,0 +1,34 @@
+# Static analysis of the game (bin/jumphp test sapiens). Level 5.
+parameters:
+    level: 5
+    paths: [src]
+    scanFiles: [../../engine/stubs/sdl.stub.php]
+    reportUnmatchedIgnoredErrors: false
+    ignoreErrors:
+        - identifier: trait.unused
+        # src/Sapiens is a faithful port of C code: globals change inside generators (phpstan cannot
+        # see it), and some dead branches / unread fields of the original are kept on purpose
+        - identifier: identical.alwaysFalse
+          path: src/Sapiens/*
+        - identifier: identical.alwaysTrue
+          path: src/Sapiens/*
+        - identifier: greater.alwaysFalse
+          path: src/Sapiens/*
+        - identifier: greater.alwaysTrue
+          path: src/Sapiens/*
+        - identifier: smaller.alwaysFalse
+          path: src/Sapiens/*
+        - identifier: smaller.alwaysTrue
+          path: src/Sapiens/*
+        - identifier: booleanAnd.alwaysFalse
+          path: src/Sapiens/*
+        - identifier: booleanOr.alwaysTrue
+          path: src/Sapiens/*
+        - identifier: property.onlyWritten
+          path: src/Sapiens/*
+        - identifier: nullCoalesce.offset
+          path: src/Sapiens/*
+        - identifier: if.alwaysFalse
+          path: src/Sapiens/*
+        - identifier: if.alwaysTrue
+          path: src/Sapiens/*

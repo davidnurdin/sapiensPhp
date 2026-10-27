@@ -1,0 +1,8 @@
+/vendor/
+/var/*
+!/var/.gitkeep
+/dist/
+/.build/
+/cache/
+/core
+/core.[0-9]*

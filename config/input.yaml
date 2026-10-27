@@ -1,0 +1,17 @@
+# Actions => keys / pad / touch. GameScene turns them into the Mac key codes of the original code.
+actions:
+  up: [Up, pad0:up]
+  down: [Down, pad0:down]
+  left: [Left, pad0:left]
+  right: [Right, pad0:right]
+  fire: [Space, pad0:button0]
+  enter: [Return, Keypad Enter, pad0:button2]
+  escape: [Escape, pad0:button1]
+  map: [C, M, pad0:button3]
+  shift: [Left Shift, Right Shift]
+  p2_up: [Keypad 8]
+  p2_down: [Keypad 2]
+  p2_left: [Keypad 4]
+  p2_right: [Keypad 6]
+  p2_fire: [Keypad 1]
+  p2_weapon: [Keypad 3]

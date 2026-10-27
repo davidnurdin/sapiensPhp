@@ -1,0 +1,21 @@
+# The game. Every key is optional (defaults: JumPHP\Kernel\GameConfig::DEFAULTS).
+game:
+  id: sapiens
+  title: "SAPIENS"
+  version: 1.0.0
+  description: "Il y a cent mille ans... Le jeu d'aventure préhistorique de Didier & Olivier Guillion (1986), porté en PHP depuis ses sources C (GPL v3)."
+  width: 640                    # the window of the original: 320x200 Atari ST coordinates x2
+  height: 400
+  scale: 2
+  background: [0, 0, 0]
+  start_scene: App\Scene\GameScene
+  lang: fr
+  online: false
+  # phones: joystick = arrows (walk / turn), A = strike / map (Space), B = weapon / speak (Return),
+  # START = leave the view (Escape); a tap on the screen = a mouse click (menus)
+  touch: { pad: stick, a: Space, b: Return, start: Escape, select: C, labels: { a: FRAPPER, b: ARME, start: SORTIR, select: CARTE, rotate: "TOURNEZ VOTRE TÉLÉPHONE" } }
+  controls: "Souris : menus du bas · Flèches : marcher / tourner · Espace : frapper / carte · Entrée : changer d'arme · Échap : quitter la vue"
+  # what `bin/jumphp test` runs headless: a bot plays
+  smoke:
+    scene: App\Scene\GameScene
+    params: { demo: true }

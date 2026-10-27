@@ -1,0 +1,120 @@
+{
+    "0": {
+        "vrac": [
+            "Aucune",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "Des fichiers essentiels sont absents, réinstallez le logiciel.",
+            "",
+            "",
+            "",
+            "C'est toi.Ton nom est %s.",
+            "C'est ton ami.Son nom est %s.",
+            "C'est ton adversaire.",
+            "C'est l'ami de ton adversaire.",
+            "Ce n'est personne.",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "C'est l'indicateur de ton souffle et de ton état.",
+            "C'est l'indicateur de souffle et d'état de tes adversaires.",
+            "C'est l'indicateur du souffle et de l'état de ton ami.",
+            ""
+        ],
+        "splash": [
+            "Edition spéciale 30ème anniversaire"
+        ]
+    },
+    "1": {
+        "vrac": [
+            "None",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "Important files are missing. Please reinstall this software.",
+            "",
+            "",
+            "",
+            "It's you. Your name is %s.",
+            "It's your friend, whose name is %s.",
+            "It's your opponent.",
+            "It's your opponent's friend.",
+            "Nobody's here.",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "It's your breath and condition indicator.",
+            "It's your opponent's breath and condition indicator.",
+            "It's your friend's breath and condition indicator.",
+            "",
+            ""
+        ],
+        "splash": [
+            "30th anniversary special edition"
+        ]
+    },
+    "2": {
+        "vrac": [
+            "Ninguno",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "Faltan archivos importantes. Por favor reinstalar el programa.",
+            "",
+            "",
+            "",
+            "Eres tú. Tu nombre es %s.",
+            "Es tu amigo, su nombre es %s.",
+            "Es tu oponente.",
+            "Es el amigo de tu oponente.",
+            "No hay nadie aquí.",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "Es tu indicador de respiración y condición.",
+            "Es el indicador de respiración y condición de tu oponente.",
+            "Es el indicado de respiración y condición de tu amigo.",
+            "",
+            ""
+        ],
+        "splash": [
+            "Edición especial 30 aniversario "
+        ]
+    },
+    "languages": [
+        "Français",
+        "English",
+        "Castellano"
+    ]
+}
