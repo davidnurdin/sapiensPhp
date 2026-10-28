@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SAPIENS — Il y a cent mille ans… | Jouer en ligne</title>
+<meta name="description" content="SAPIENS, le jeu d'aventure préhistorique de Didier et Olivier Guillion (1986), rejouable dans le navigateur, sur ordinateur et sur mobile. Survivez, chassez, négociez avec les tribus et devenez chef des Pieds-Agiles.">
+<link rel="canonical" href="https://{{DOMAIN}}/">
+<meta name="theme-color" content="#1b120b">
+<meta property="og:type" content="website">
+<meta property="og:title" content="SAPIENS — Il y a cent mille ans…">
+<meta property="og:description" content="Le jeu d'aventure préhistorique de 1986, porté en PHP et jouable dans le navigateur.">
+<meta property="og:url" content="https://{{DOMAIN}}/">
+<meta property="og:image" content="https://{{DOMAIN}}/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%231b120b'/%3E%3Cpath d='M20 50 L32 12 L44 50 Z' fill='%23d9822b'/%3E%3Cpath d='M28 50 L32 30 L36 50 Z' fill='%23f2c14e'/%3E%3C/svg%3E">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"VideoGame","name":"SAPIENS","url":"https://{{DOMAIN}}/","author":[{"@type":"Person","name":"Didier Guillion"},{"@type":"Person","name":"Olivier Guillion"}],"datePublished":"1986","genre":["Aventure","Survie"],"gamePlatform":["Navigateur web","Mobile"],"inLanguage":["fr","en","es"],"license":"https://www.gnu.org/licenses/gpl-3.0.html"}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&family=Alegreya+Sans:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --night: #1b120b;
+  --rock: #3a2a1d;
+  --rock2: #4d3826;
+  --ochre: #d9822b;
+  --ochre-light: #f2c14e;
+  --blood: #9e2f1c;
+  --charcoal: #120c08;
+  --bone: #f1e4c8;
+  --bone-dim: #cdbb98;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--night);
+  color: var(--bone);
+  font: 18px/1.6 "Alegreya Sans", system-ui, sans-serif;
+}
+a { color: var(--ochre-light); }
+h1, h2, h3 { font-family: "Uncial Antiqua", Georgia, serif; font-weight: 400; letter-spacing: .02em; }
+
+/* --- the cave wall --- */
+.cave {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 48px 16px 64px;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse 60% 45% at 50% 55%, rgba(242,193,78,.18), transparent 70%),
+    radial-gradient(ellipse at 20% 20%, var(--rock2), transparent 55%),
+    radial-gradient(ellipse at 80% 70%, #4a3220, transparent 60%),
+    linear-gradient(160deg, var(--rock) 0%, #2b1e14 55%, var(--charcoal) 100%);
+}
+.cave::before {
+  /* the grain of the rock */
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3CfeColorMatrix values='0 0 0 0 .1 0 0 0 0 .07 0 0 0 0 .04 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode: multiply;
+  opacity: .8;
+  pointer-events: none;
+}
+.paintings {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: .55;
+  pointer-events: none;
+}
+.torch {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 100%, rgba(255,160,60,.25), transparent 55%);
+  animation: flicker 3.2s infinite ease-in-out;
+  pointer-events: none;
+}
+@keyframes flicker {
+  0%, 100% { opacity: .85; }
+  20% { opacity: 1; }
+  45% { opacity: .7; }
+  60% { opacity: .95; }
+  80% { opacity: .78; }
+}
+.cave > *:not(.paintings):not(.torch) { position: relative; }
+.era { color: var(--ochre-light); letter-spacing: .3em; text-transform: uppercase; font-size: .85rem; margin: 0 0 8px; }
+.title {
+  margin: 0;
+  font-size: clamp(3.2rem, 14vw, 8rem);
+  line-height: 1;
+  color: var(--ochre);
+  text-shadow: 3px 3px 0 var(--blood), 0 0 30px rgba(217,130,43,.35);
+}
+.tagline { font-size: clamp(1.1rem, 3.5vw, 1.5rem); max-width: 34em; margin: 18px auto 30px; color: var(--bone); }
+.play {
+  display: inline-block;
+  padding: 18px 46px;
+  font: 1.6rem "Uncial Antiqua", Georgia, serif;
+  color: var(--charcoal);
+  text-decoration: none;
+  background: linear-gradient(145deg, #e9b863, var(--ochre) 55%, #a85d1c);
+  clip-path: polygon(6% 0, 94% 4%, 100% 48%, 95% 100%, 5% 96%, 0 52%);
+  box-shadow: 0 8px 0 #6b3a12;
+  transition: transform .15s, filter .15s;
+}
+.play:hover, .play:focus-visible { transform: translateY(-2px) scale(1.03); filter: brightness(1.1); }
+.hint { margin-top: 16px; font-size: .95rem; color: var(--bone-dim); }
+
+main { max-width: 1060px; margin: 0 auto; padding: 0 16px; }
+section { padding: 56px 0 8px; }
+h2 { font-size: clamp(1.8rem, 5vw, 2.6rem); color: var(--ochre-light); margin: 0 0 18px; }
+h2::after {
+  content: "";
+  display: block;
+  width: 120px;
+  height: 6px;
+  margin-top: 6px;
+  background: repeating-linear-gradient(90deg, var(--blood) 0 14px, transparent 14px 20px);
+  border-radius: 3px;
+}
+.shots { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; margin-top: 24px; }
+figure { margin: 0; background: var(--rock); border: 3px solid #5a4029; border-radius: 6px; overflow: hidden; }
+figure img { display: block; width: 100%; height: auto; image-rendering: pixelated; aspect-ratio: 8 / 5; object-fit: cover; }
+figcaption { padding: 10px 14px; color: var(--bone-dim); font-size: .95rem; }
+.tribes { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+.tribe { background: linear-gradient(160deg, var(--rock2), var(--rock)); padding: 18px; border-radius: 8px; border-left: 6px solid var(--ochre); }
+.tribe h3 { margin: 0 0 4px; color: var(--ochre-light); font-size: 1.25rem; }
+.tribe p { margin: 0; color: var(--bone-dim); }
+ol.quest { counter-reset: q; list-style: none; padding: 0; }
+ol.quest li { counter-increment: q; position: relative; padding: 10px 0 10px 56px; border-bottom: 1px dashed #5a4029; }
+ol.quest li::before {
+  content: counter(q);
+  position: absolute; left: 0; top: 8px;
+  width: 40px; height: 40px;
+  display: grid; place-items: center;
+  font-family: "Uncial Antiqua", Georgia, serif;
+  color: var(--charcoal); background: var(--ochre);
+  border-radius: 50% 45% 55% 40%;
+}
+.controls { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 18px; }
+.panel { background: var(--rock); border-radius: 8px; padding: 18px 20px; }
+.panel h3 { margin: 0 0 10px; color: var(--ochre-light); }
+.panel dl { display: grid; grid-template-columns: max-content 1fr; gap: 6px 14px; margin: 0; }
+.panel dt { color: var(--ochre-light); font-weight: 700; }
+.panel dd { margin: 0; }
+kbd { background: var(--bone); color: var(--charcoal); border-radius: 4px; padding: 0 6px; font: 700 .85rem/1.5 ui-monospace, monospace; box-shadow: 0 2px 0 #8a7a5c; }
+.timeline { border-left: 4px solid var(--ochre); margin: 0; padding: 0 0 0 22px; list-style: none; }
+.timeline li { position: relative; padding: 4px 0 12px; }
+.timeline li::before { content: ""; position: absolute; left: -31px; top: 12px; width: 14px; height: 14px; background: var(--blood); border-radius: 50%; border: 3px solid var(--night); }
+.timeline b { color: var(--ochre-light); }
+footer { margin-top: 64px; padding: 32px 16px 48px; text-align: center; color: var(--bone-dim); font-size: .9rem; background: var(--charcoal); }
+footer p { max-width: 760px; margin: 8px auto; }
+@media (prefers-reduced-motion: reduce) {
+  .torch { animation: none; }
+  html { scroll-behavior: auto; }
+}
+</style>
+</head>
+<body>
+
+<header class="cave">
+  <svg class="paintings" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <defs>
+      <filter id="rough"><feTurbulence baseFrequency=".04" numOctaves="2" result="t"/><feDisplacementMap in="SourceGraphic" in2="t" scale="6"/></filter>
+    </defs>
+    <g filter="url(#rough)" fill="#b4492a">
+      <!-- bison -->
+      <path d="M120 250c30-50 120-60 170-40 30-25 70-20 85 10 10 20 0 40-15 50l10 60h-18l-12-45c-30 10-70 12-110 5l-10 45h-18l2-50c-30-5-60-10-74-35z"/>
+      <!-- horse -->
+      <path d="M880 170c40-30 110-30 150 0l40-30 15 10-25 40c10 20 5 40-15 50l8 60h-16l-12-50c-40 10-80 8-110 0l-12 50h-16l6-60c-20-15-25-45-13-70z" fill="#2a1a10"/>
+      <!-- deer -->
+      <path d="M780 560c30-25 80-28 110-10l20-40-30-30 12-8 30 28 20-45 12 6-22 50 18 14-12 40c4 20-6 30-18 35l6 50h-14l-10-42c-30 6-55 4-75-2l-8 44h-14l4-50c-20-10-24-26-24-40z"/>
+      <!-- hunters -->
+      <path d="M330 600l10-40-14-30 10-4 14 26 10-32h8l-6 34 20 22-6 8-20-18-8 36z" fill="#2a1a10"/>
+      <path d="M380 600l10-40-14-30 10-4 14 26 10-32h8l-6 34 20 22-6 8-20-18-8 36z" fill="#2a1a10"/>
+      <path d="M300 520l140-60" stroke="#2a1a10" stroke-width="4"/>
+    </g>
+    <!-- hands -->
+    <g fill="#d9822b" opacity=".7">
+      <path d="M560 120c-6-30-2-60 8-62s8 28 10 40c2-18 4-48 14-48s8 34 8 48c4-16 8-40 18-38s4 30 2 46c6-10 12-26 20-22s-6 30-14 46c-10 22-30 36-48 32s-16-20-18-42z"/>
+      <path d="M1040 520c-6-30-2-60 8-62s8 28 10 40c2-18 4-48 14-48s8 34 8 48c4-16 8-40 18-38s4 30 2 46c6-10 12-26 20-22s-6 30-14 46c-10 22-30 36-48 32s-16-20-18-42z" fill="#9e2f1c"/>
+    </g>
+    <g fill="none" stroke="#f1e4c8" stroke-width="3" opacity=".25">
+      <circle cx="140" cy="640" r="6"/><circle cx="160" cy="660" r="6"/><circle cx="182" cy="648" r="6"/><circle cx="204" cy="668" r="6"/>
+    </g>
+  </svg>
+  <div class="torch"></div>
+  <p class="era">Didier &amp; Olivier Guillion · 1986</p>
+  <h1 class="title">SAPIENS</h1>
+  <p class="tagline">Il y a cent mille ans, le jour se lève sur la tribu des Pieds-Agiles. Survivez, chassez, parlez aux autres tribus et devenez le chef de votre clan.</p>
+  <a class="play" href="play/">Jouer</a>
+  <p class="hint">Gratuit, sans installation · ordinateur et mobile (tenez le téléphone à l'horizontale)</p>
+</header>
+
+<main>
+  <section id="jeu">
+    <h2>Le jeu</h2>
+    <p>Vous êtes <strong>Torgan</strong>, jeune chasseur des <strong>Pieds-Agiles</strong>. Vous parcourez une vaste vallée en vue subjective : montagnes, forêts, sources, nuages et orages. Le jour succède à la nuit, la faim, la soif et la fatigue vous rongent. Vous croisez loups, ours, lapins et des hommes d'autres tribus : il faut alors combattre, en vue latérale, à la hache, à la sagaie ou à mains nues… ou bien parler, échanger des cadeaux et se faire des alliés.</p>
+    <p>Taillez le silex pour fabriquer vos armes, ramassez des baies et des racines, soignez vos blessures, dormez près du feu. Ici, la ruse et la diplomatie valent souvent mieux que la force.</p>
+    <div class="shots">
+      <figure><img src="img/paysage.png" alt="Le paysage en vue subjective" loading="lazy" width="640" height="400"><figcaption>La vallée en vue subjective, de jour comme de nuit</figcaption></figure>
+      <figure><img src="img/combat.png" alt="Un combat en vue latérale" loading="lazy" width="640" height="400"><figcaption>Chasse et combat en vue latérale</figcaption></figure>
+      <figure><img src="img/quete.png" alt="Le chef Hognor confie une quête" loading="lazy" width="640" height="400"><figcaption>La nuit tombe : le chef Hognor confie sa première quête</figcaption></figure>
+    </div>
+  </section>
+
+  <section id="quete">
+    <h2>La quête</h2>
+    <p>Hognor, le chef de votre tribu, vous confie des épreuves de plus en plus difficiles :</p>
+    <ol class="quest">
+      <li>Rapporter des vivres : la tribu a faim.</li>
+      <li>Obtenir la <strong>Potion de Vie</strong> des Yeux-Malins, car les jeunes ont mangé des baies vénéneuses.</li>
+      <li>Relever le défi des Bras-de-Roc : vaincre leur chef et lui voler la <strong>Hache d'Ivoire</strong>.</li>
+      <li>Reprendre le <strong>Bâton Sacré</strong> dérobé par les Hyènes-Folles.</li>
+      <li>Et enfin… que la loi de la force désigne le nouveau chef.</li>
+    </ol>
+    <div class="tribes">
+      <div class="tribe"><h3>Pieds-Agiles</h3><p>Votre tribu. Chef : Hognor.</p></div>
+      <div class="tribe"><h3>Yeux-Malins</h3><p>Rusés guérisseurs. Chef : Sl-Oom.</p></div>
+      <div class="tribe"><h3>Bras-de-Roc</h3><p>Guerriers redoutés. Chef : Grungh.</p></div>
+      <div class="tribe"><h3>Hyènes-Folles</h3><p>Pillards du Sud. Chef : Krok-G.</p></div>
+    </div>
+  </section>
+
+  <section id="aide">
+    <h2>Commandes</h2>
+    <div class="controls">
+      <div class="panel">
+        <h3>Ordinateur</h3>
+        <dl>
+          <dt>Souris</dt><dd>Choisir une action dans les menus du bas (flèches ▲▼ pour faire défiler), cliquer sur l'image pour observer</dd>
+          <dt><kbd>←</kbd> <kbd>→</kbd></dt><dd>Paysage : tourner · vue latérale : marcher</dd>
+          <dt><kbd>↑</kbd> <kbd>↓</kbd></dt><dd>Paysage : accélérer / ralentir · vue latérale : se relever / s'accroupir</dd>
+          <dt><kbd>Espace</kbd></dt><dd>Paysage : carte · vue latérale : frapper</dd>
+          <dt><kbd>Entrée</kbd></dt><dd>Changer d'arme (ou clic droit)</dd>
+          <dt><kbd>Échap</kbd></dt><dd>Quitter la vue (ou clic)</dd>
+          <dt>Pavé num.</dt><dd>Second joueur (<kbd>8</kbd><kbd>2</kbd><kbd>4</kbd><kbd>6</kbd>, <kbd>1</kbd> frapper, <kbd>3</kbd> arme)</dd>
+        </dl>
+      </div>
+      <div class="panel">
+        <h3>Mobile</h3>
+        <dl>
+          <dt>Toucher</dt><dd>Comme un clic de souris : tout le jeu se joue avec les menus (Regarder › Paysage pour partir explorer)</dd>
+          <dt>Joystick</dt><dd>Bande de gauche : tourner, avancer (paysage), marcher (vue latérale)</dd>
+          <dt>FRAPPER</dt><dd>Vue latérale : frapper · paysage : carte</dd>
+          <dt>ARME</dt><dd>Vue latérale : changer d'arme</dd>
+          <dt>SORTIR</dt><dd>Quitter le paysage ou la vue en cours (un toucher sur l'image aussi)</dd>
+          <dt>CARTE</dt><dd>La carte dans le paysage</dd>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section id="histoire">
+    <h2>Une longue histoire</h2>
+    <ul class="timeline">
+      <li><b>1986</b> — Première version, écrite en assembleur pour les Thomson MO5 et TO7/8/9 et l'Amstrad CPC, puis réécrite en C pour le PC.</li>
+      <li><b>1987</b> — Version plus colorée pour l'Atari ST.</li>
+      <li><b>1996</b> — Les sources C sortent des cartons : version pour MacOS et Windows.</li>
+      <li><b>2017</b> — Sapiens passe en freeware.</li>
+      <li><b>2018</b> — <a href="https://www.myriad-online.com/fr/products/sapiensopensource.htm">Myriad publie les sources</a> sous licence GNU GPL v3.</li>
+      <li><b>Aujourd'hui</b> — Portage en PHP, jouable dans le navigateur.</li>
+    </ul>
+  </section>
+
+  <section id="php">
+    <h2>100 % PHP</h2>
+    <p>Cette version est un portage fidèle, fonction par fonction, des sources C de 2018 vers <strong>PHP</strong>, sur le framework <a href="https://github.com/davidnurdin/jumPhp">JumPHP</a>. Le même code tourne sur ordinateur (PHP + SDL2) et dans le navigateur (PHP compilé en WebAssembly). Les sprites, les sons et les textes sont ceux du jeu original.</p>
+    <p>Code source : <a href="https://github.com/davidnurdin/sapiensPhp">github.com/davidnurdin/sapiensPhp</a> · sources originales : <a href="https://www.myriad-online.com/fr/products/sapiensopensource.htm">la page Sapiens open source de Myriad</a>.</p>
+  </section>
+</main>
+
+<footer>
+  <p><strong>SAPIENS</strong> © Didier &amp; Olivier Guillion — Myriad, 1986-2017. Musiques originales de Gilles Soulet.</p>
+  <p>Sources publiées sous licence <a href="https://www.gnu.org/licenses/gpl-3.0.html">GNU GPL v3</a> ; ce portage est distribué sous la même licence.</p>
+  <p>Site de fan non officiel.</p>
+</footer>
+</body>
+</html>
