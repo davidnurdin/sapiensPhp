@@ -34,7 +34,7 @@ Read the framework rules first: `../../AGENTS.md`.
 | `Render3dTrait` | SAPW3D.C | the landscape renderer (sky, stars, ground, billboards) |
 | `TreeTrait` | SAPWARB.C | the trees of the side view |
 | `MapTrait` | SAPWCART.C | the map |
-| `MusicTrait` | SAPWMUS.C, MUSE.C | sound effects (`bruit`) and music |
+| `MusicTrait` | SAPWMUS.C | sound effects (`bruit`) and music |
 
 ## Porting conventions (keep them when changing the port)
 
@@ -71,8 +71,11 @@ Read the framework rules first: `../../AGENTS.md`.
   trees / rocks are culled with a grid. Stars are a pre-drawn band (other random sequence at night).
 - Dialogs of the Mac version (confirmations, file pickers, preferences, informations) are in-game
   choices (`GestTrait::gestChoix`): 3 save slots in the options (`sapiens_save_<n>`, original bytes in base64).
-- Music: the 1987 score of `MUSE.C` re-synthesised offline (`tools/render-music.php` + ffmpeg) to
-  `assets/music/sapiens1.ogg` / `sapiens2.ogg` (the `.mux` files need a proprietary library).
+- Music: rendered offline (`tools/render-music.php` + ffmpeg) to `assets/music/sapiens1.ogg` / `sapiens2.ogg`
+  with the sampled instruments of `Sapiens1.mux` / `Sapiens2.mux` (Harmony Assistant files, decoded by
+  `tools/Mux.php`: LZW, staves, log-coded samples). Music 1 is their score note for note; music 2 is made
+  by the accompaniment engine of Harmony (patterns over chords, not reproduced), so its notes come from
+  the 1987 score it was made from (`MUSE.C`, same General MIDI programs).
 - English texts: one word replaced by "SPEAR" (lint of the framework).
 - Touch screens: no steering with the pointer (`touchMode`), the on-screen pad sends the keys.
 

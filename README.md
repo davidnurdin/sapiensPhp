@@ -50,6 +50,6 @@ are. The original files of the 2018 archive that were converted are in `assets/`
 
 ## Credits & license
 
-- SAPIENS © Didier & Olivier Guillion — Myriad, 1986-2017. Music by Gilles Soulet (1987 score,
-  re-synthesised from `MUSE.C`).
+- SAPIENS © Didier & Olivier Guillion — Myriad, 1986-2017. Music by Gilles Soulet (1986),
+  rendered with the instruments of the original `.mux` files.
 - Sources and data: GNU GPL v3 (Myriad, 3 April 2018). This port: GNU GPL v3, see [LICENSE](LICENSE).
