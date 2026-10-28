@@ -492,6 +492,14 @@ trait GestTrait
         for ($i = 0; $i < $taille; $i++) {
             $this->zoneu->elements[$i] = 32;
         }
+        if ($this->touchMode) {
+            // no keyboard on a phone: the name of the last character, a tap accepts it
+            $defaut = substr($this->nomjoueur, 0, $taille);
+            for ($pos = 0; $pos < strlen($defaut); $pos++) {
+                $this->zoneu->elements[$pos] = ord($defaut[$pos]);
+            }
+        }
+        $avant = 1;
         while (true) {
             $this->efbadi();
             $this->comment($mess);
@@ -503,6 +511,13 @@ trait GestTrait
             do {
                 yield;
                 $car = $this->litclav();
+                if ($this->touchMode && !$car) {
+                    $this->vq_mouse($this->bouton, $this->sposx, $this->sposy);
+                    if ($this->bouton && !$avant && $pos) {
+                        $car = 13;
+                    }
+                    $avant = $this->bouton;
+                }
             } while (!$car);
             if ($car === 13) {
                 // the names of the initiated
@@ -718,6 +733,15 @@ trait GestTrait
         $this->comment(89);
         $car = 0;
         $this->reset_clav();
+        if ($this->touchMode) {
+            // no keyboard on a phone: a choice to tap
+            $this->TfrBadAss();
+            $c = -1;
+            while ($c < 0) {
+                $c = yield from $this->gestChoix($this->gestTexte('sexe'), [$this->gestTexte('homme'), $this->gestTexte('femme')]);
+            }
+            $car = $c === 0 ? $this->HOMME : $this->FEMME;
+        }
         while ($car !== $this->HOMME && $car !== $this->FEMME) {
             yield;
             $car = $this->litclav() & 223;
@@ -949,6 +973,9 @@ trait GestTrait
             'autonome' => ['autonome', 'automatic', 'automatico'],
             'clavier' => ['clavier', 'keyboard', 'teclado'],
             'info' => ['SAPIENS 3.0.14', 'SAPIENS 3.0.14', 'SAPIENS 3.0.14'],
+            'sexe' => ['Homme ou femme ?', 'Man or woman?', '[Hombre o mujer?'],
+            'homme' => ['Homme', 'Man', 'Hombre'],
+            'femme' => ['Femme', 'Woman', 'Mujer'],
         ];
         return $t[$key][$this->langue] ?? $t[$key][1];
     }

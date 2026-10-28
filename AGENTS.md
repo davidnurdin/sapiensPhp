@@ -77,7 +77,9 @@ Read the framework rules first: `../../AGENTS.md`.
   by the accompaniment engine of Harmony (patterns over chords, not reproduced), so its notes come from
   the 1987 score it was made from (`MUSE.C`, same General MIDI programs).
 - English texts: one word replaced by "SPEAR" (lint of the framework).
-- Touch screens: no steering with the pointer (`touchMode`), the on-screen pad sends the keys.
+- Touch screens (`touchMode`): no steering with the pointer, the on-screen pad sends the keys; a held click
+  lasts until the game reads it (GameScene); no keyboard: the name of a new character is the last one
+  (a tap accepts it) and man / woman is a `gestChoix`.
 
 ## Run / test
 
