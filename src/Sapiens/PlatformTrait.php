@@ -26,6 +26,8 @@ trait PlatformTrait
     public int $mouseX = 0;
     public int $mouseY = 0;
     public bool $mouseButton = false;
+    /** the game read the mouse (vq_mouse) since the last click: GameScene keeps short clicks down until then */
+    public bool $mouseRead = true;
     /** the pointer is a finger (no mouse steering in the views) */
     public bool $touchMode = false;
 
@@ -244,6 +246,7 @@ trait PlatformTrait
         $x = intdiv($this->mouseX, 2);
         $y = intdiv($this->mouseY, 2);
         $bouton = $this->mouseButton ? 1 : 0;
+        $this->mouseRead = true;
         if ($bouton && ($this->keysHeld[self::MK_SHIFT] ?? false)) {
             $bouton |= 2;
         }

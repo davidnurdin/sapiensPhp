@@ -36,6 +36,8 @@ final class GameScene extends AbstractScene
         'p2_weapon' => Game::MK_KP3,
     ];
 
+    private const CLICK_HOLD = 0.12;
+
     private ?Game $game = null;
     private ?\Generator $main = null;
     private bool $demo = false;
@@ -45,12 +47,14 @@ final class GameScene extends AbstractScene
     private string $bmpHeader = '';
     private string $tmpFile = '';
     private bool $hasScreen = false;
+    private float $clickHold = 0;
 
     public function enter(array $params = []): void
     {
         $this->error = null;
         $this->frame = 0;
         $this->hasScreen = false;
+        $this->clickHold = 0;
         $this->demo = (bool)($params['demo'] ?? false);
         $this->demoSeed = (int)($params['seed'] ?? 0);
         $dataDir = $this->engine->config->path('assets/data');
@@ -112,7 +116,7 @@ final class GameScene extends AbstractScene
             return;
         }
         $this->frame++;
-        $this->readInput();
+        $this->readInput($dt);
         $this->game->advanceTime(min($dt, 0.1) * 1000);
         $this->guard(function (): void {
             if ($this->main->valid()) {
@@ -131,7 +135,7 @@ final class GameScene extends AbstractScene
         }
     }
 
-    private function readInput(): void
+    private function readInput(float $dt): void
     {
         $g = $this->game;
         if ($this->demo) {
@@ -155,7 +159,15 @@ final class GameScene extends AbstractScene
         $mouse = $this->engine->input->getMouse();
         $g->mouseX = (int)$mouse->x;
         $g->mouseY = (int)$mouse->y;
-        $g->mouseButton = $mouse->isHeld(1) || $mouse->isPressed(1);
+        // a tap is down and up in the same frame, and the game reads the button only between its waits:
+        // keep a click down until the game has seen it, and at least CLICK_HOLD seconds
+        if ($mouse->isPressed(1)) {
+            $this->clickHold = self::CLICK_HOLD;
+            $g->mouseRead = false;
+        } elseif ($this->clickHold > 0 && $g->mouseRead) {
+            $this->clickHold -= $dt;
+        }
+        $g->mouseButton = $mouse->isHeld(1) || $this->clickHold > 0;
         if ($mouse->isHeld(3) || $mouse->isPressed(3)) {
             // right button = shift + click (change of weapon in the side view)
             $g->mouseButton = true;
