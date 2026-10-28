@@ -47,6 +47,13 @@ $programs2 = [
 ];
 // volumes of the drum tracks of the rhythms of Sapiens2.mux (the samples are full scale)
 $drumVolume = ['kick drum 1' => 112, 'cabasa' => 36, 'low bongo' => 80, 'snare drum 1' => 80, 'claves' => 64];
+// mix: the melody in front (the samples are not at the same level: rendered raw, the bass and the drums
+// cover the lead instruments)
+$mix = [
+    1 => ['C4P117' => 0.7, 'C6P13' => 1.2, 'C1P34' => 0.6, 'C8P76' => 2.2],
+    2 => ['C4P38' => 0.3, 'kick drum 1' => 0.45, 'C2P8' => 1.3, 'C12P33' => 1.0, 'C9P88' => 2.8,
+        'C6P111' => 2.2, 'C13P31' => 2.0, 'low bongo' => 1.2, 'snare drum 1' => 2.0, 'claves' => 1.5, 'cabasa' => 2.0],
+];
 
 foreach ([1, 2] as $quelle) {
     $mux = new Mux("$dir/sapiens$quelle.mux");
@@ -57,7 +64,7 @@ foreach ([1, 2] as $quelle) {
         foreach ($mux->staves() as $i => $staff) {
             [$name, $transpose] = $staves1[$i];
             foreach ($staff['notes'] as [$start, $len, $pitch, $vel]) {
-                $notes[] = [$start * $beat, $len * $beat, $name, $pitch + $transpose, $vel / 127];
+                $notes[] = [$start * $beat, $len * $beat, $name, $pitch + $transpose, $vel / 127 * $mix[1][$name]];
             }
         }
     } else {
@@ -70,10 +77,10 @@ foreach ([1, 2] as $quelle) {
             }
             // the drums of the 1987 score are notes of melodic programs: only the toms keep a pitch
             $pitch = $drum === null ? $note : ($drum > 0 ? $note - $drum : null);
-            $notes[] = [$start / 50, $len / 50, $name, $pitch, ($drumVolume[$name] ?? 127) / 127 * $vol];
+            $notes[] = [$start / 50, $len / 50, $name, $pitch, ($drumVolume[$name] ?? 127) / 127 * $vol * ($mix[2][$name] ?? 1.0)];
         }
     }
-    $buf = render($notes, $instruments);
+    $buf = master(render($notes, $instruments));
     $file = __DIR__ . "/../assets/music/sapiens$quelle.wav";
     @mkdir(dirname($file), 0777, true);
     file_put_contents($file, wav($buf));
@@ -227,8 +234,47 @@ function render(array $notes, array $instruments): SplFixedArray
             $pos += $step;
         }
     }
+    return $buf;
+}
+
+/**
+ * Brightness (the samples are 22 kHz, linear interpolation dulls them): high shelf +5 dB above ~2.5 kHz,
+ * then a soft limiter so the quiet lead parts are not lost under the peaks of the drums, normalised to 0.9.
+ * @param SplFixedArray<float> $buf
+ * @return SplFixedArray<float>
+ */
+function master(SplFixedArray $buf): SplFixedArray
+{
+    // RBJ high shelf, S = 1
+    $a = 10 ** (5 / 40);
+    $w = 2 * M_PI * 2500 / RATE;
+    $cs = cos($w);
+    $alpha = sin($w) / 2 * sqrt(2);
+    $sq = 2 * sqrt($a) * $alpha;
+    $b0 = $a * (($a + 1) + ($a - 1) * $cs + $sq);
+    $b1 = -2 * $a * (($a - 1) + ($a + 1) * $cs);
+    $b2 = $a * (($a + 1) + ($a - 1) * $cs - $sq);
+    $a0 = ($a + 1) - ($a - 1) * $cs + $sq;
+    $a1 = 2 * (($a - 1) - ($a + 1) * $cs);
+    $a2 = ($a + 1) - ($a - 1) * $cs - $sq;
+    $x1 = $x2 = $y1 = $y2 = 0.0;
+    $sum = 0.0;
+    $n = count($buf);
+    foreach ($buf as $i => $x) {
+        $y = ($b0 * $x + $b1 * $x1 + $b2 * $x2 - $a1 * $y1 - $a2 * $y2) / $a0;
+        $x2 = $x1;
+        $x1 = $x;
+        $y2 = $y1;
+        $y1 = $y;
+        $buf[$i] = $y;
+        $sum += $y * $y;
+    }
+    // drive: the RMS at 0.2 before the limiter
+    $drive = 0.2 / max(sqrt($sum / max(1, $n)), 1e-6);
     $peak = 0.0;
-    foreach ($buf as $v) {
+    foreach ($buf as $i => $v) {
+        $v = tanh($v * $drive);
+        $buf[$i] = $v;
         $peak = max($peak, abs($v));
     }
     $scale = 0.9 / max($peak, 0.01);
