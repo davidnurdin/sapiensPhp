@@ -32,3 +32,11 @@ parameters:
           path: src/Sapiens/*
         - identifier: if.alwaysTrue
           path: src/Sapiens/*
+        - identifier: booleanNot.alwaysTrue
+          path: src/Sapiens/*
+        - identifier: notIdentical.alwaysTrue
+          path: src/Sapiens/*
+        - identifier: deadCode.unreachable
+          path: src/Sapiens/*
+        - identifier: foreach.emptyArray
+          path: src/Sapiens/*
