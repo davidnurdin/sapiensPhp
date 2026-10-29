@@ -4,6 +4,9 @@ game:
   title: "SAPIENS"
   version: 1.0.0
   description: "Il y a cent mille ans... Le jeu d'aventure préhistorique de Didier & Olivier Guillion (1986), porté en PHP depuis ses sources C (GPL v3)."
+  descriptions:                 # the description in the playground's languages (jumphp.net shows the visitor's)
+    fr: "Il y a cent mille ans... Le jeu d'aventure préhistorique de Didier & Olivier Guillion (1986), porté en PHP depuis ses sources C (GPL v3)."
+    en: "A hundred thousand years ago... The prehistoric adventure game by Didier & Olivier Guillion (1986), ported to PHP from its C sources (GPL v3)."
   width: 640                    # the window of the original: 320x200 Atari ST coordinates x2
   height: 400
   scale: 2
