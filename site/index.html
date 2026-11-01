@@ -6,16 +6,34 @@
 <title>SAPIENS — Il y a cent mille ans… | Jouer en ligne</title>
 <meta name="description" content="SAPIENS, le jeu d'aventure préhistorique de Didier et Olivier Guillion (1986), rejouable dans le navigateur, sur ordinateur et sur mobile. Survivez, chassez, négociez avec les tribus et devenez chef des Pieds-Agiles.">
 <link rel="canonical" href="https://{{DOMAIN}}/">
+<link rel="alternate" hreflang="fr" href="https://{{DOMAIN}}/">
+<link rel="alternate" hreflang="en" href="https://{{DOMAIN}}/en/">
+<link rel="alternate" hreflang="es" href="https://{{DOMAIN}}/es/">
+<link rel="alternate" hreflang="de" href="https://{{DOMAIN}}/de/">
+<link rel="alternate" hreflang="it" href="https://{{DOMAIN}}/it/">
+<link rel="alternate" hreflang="pt" href="https://{{DOMAIN}}/pt/">
+<link rel="alternate" hreflang="nl" href="https://{{DOMAIN}}/nl/">
+<link rel="alternate" hreflang="pl" href="https://{{DOMAIN}}/pl/">
+<link rel="alternate" hreflang="ru" href="https://{{DOMAIN}}/ru/">
+<link rel="alternate" hreflang="uk" href="https://{{DOMAIN}}/uk/">
+<link rel="alternate" hreflang="tr" href="https://{{DOMAIN}}/tr/">
+<link rel="alternate" hreflang="ja" href="https://{{DOMAIN}}/ja/">
+<link rel="alternate" hreflang="zh" href="https://{{DOMAIN}}/zh/">
+<link rel="alternate" hreflang="ko" href="https://{{DOMAIN}}/ko/">
+<link rel="alternate" hreflang="x-default" href="https://{{DOMAIN}}/">
 <meta name="theme-color" content="#1b120b">
 <meta property="og:type" content="website">
 <meta property="og:title" content="SAPIENS — Il y a cent mille ans…">
 <meta property="og:description" content="Le jeu d'aventure préhistorique de 1986, porté en PHP et jouable dans le navigateur.">
 <meta property="og:url" content="https://{{DOMAIN}}/">
+<meta property="og:locale" content="fr_FR">
 <meta property="og:image" content="https://{{DOMAIN}}/img/og.png">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="SAPIENS — Il y a cent mille ans…">
+<meta name="twitter:description" content="Le jeu d'aventure préhistorique de 1986, porté en PHP et jouable dans le navigateur.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%231b120b'/%3E%3Cpath d='M20 50 L32 12 L44 50 Z' fill='%23d9822b'/%3E%3Cpath d='M28 50 L32 30 L36 50 Z' fill='%23f2c14e'/%3E%3C/svg%3E">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"VideoGame","name":"SAPIENS","url":"https://{{DOMAIN}}/","author":[{"@type":"Person","name":"Didier Guillion"},{"@type":"Person","name":"Olivier Guillion"}],"datePublished":"1986","genre":["Aventure","Survie"],"gamePlatform":["Navigateur web","Mobile"],"inLanguage":["fr","en","es"],"license":"https://www.gnu.org/licenses/gpl-3.0.html"}
+{"@context":"https://schema.org","@type":"VideoGame","name":"SAPIENS","url":"https://{{DOMAIN}}/","description":"SAPIENS, le jeu d'aventure préhistorique de Didier et Olivier Guillion (1986), rejouable dans le navigateur, sur ordinateur et sur mobile. Survivez, chassez, négociez avec les tribus et devenez chef des Pieds-Agiles.","author":[{"@type":"Person","name":"Didier Guillion"},{"@type":"Person","name":"Olivier Guillion"}],"datePublished":"1986","genre":["Aventure","Survie"],"gamePlatform":["Navigateur web","Mobile"],"inLanguage":"fr","image":"https://{{DOMAIN}}/img/og.png","isAccessibleForFree":true,"license":"https://www.gnu.org/licenses/gpl-3.0.html"}
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -164,9 +182,14 @@ footer p { max-width: 760px; margin: 8px auto; }
   .torch { animation: none; }
   html { scroll-behavior: auto; }
 }
+.langs { background: var(--charcoal); padding: 10px 12px; text-align: center; font-size: .9rem; line-height: 1.3; }
+.langs a { display: inline-block; margin: 2px 3px; padding: 3px 9px; border-radius: 12px; color: var(--bone-dim); text-decoration: none; border: 1px solid #5a4029; }
+.langs a:hover, .langs a:focus-visible { color: var(--ochre-light); border-color: var(--ochre); }
+.langs a[aria-current="true"] { background: var(--ochre); border-color: var(--ochre); color: var(--charcoal); font-weight: 700; }
 </style>
 </head>
 <body>
+<nav class="langs" aria-label="Langues"><a href="./" hreflang="fr" lang="fr" aria-current="true">Français</a><a href="en/" hreflang="en" lang="en">English</a><a href="es/" hreflang="es" lang="es">Español</a><a href="de/" hreflang="de" lang="de">Deutsch</a><a href="it/" hreflang="it" lang="it">Italiano</a><a href="pt/" hreflang="pt" lang="pt">Português</a><a href="nl/" hreflang="nl" lang="nl">Nederlands</a><a href="pl/" hreflang="pl" lang="pl">Polski</a><a href="ru/" hreflang="ru" lang="ru">Русский</a><a href="uk/" hreflang="uk" lang="uk">Українська</a><a href="tr/" hreflang="tr" lang="tr">Türkçe</a><a href="ja/" hreflang="ja" lang="ja">日本語</a><a href="zh/" hreflang="zh" lang="zh">中文</a><a href="ko/" hreflang="ko" lang="ko">한국어</a></nav>
 
 <header class="cave">
   <svg class="paintings" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" aria-hidden="true">

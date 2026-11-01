@@ -1,4 +1,255 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://{{DOMAIN}}/</loc></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://{{DOMAIN}}/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://{{DOMAIN}}/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://{{DOMAIN}}/en/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://{{DOMAIN}}/es/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://{{DOMAIN}}/de/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://{{DOMAIN}}/it/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://{{DOMAIN}}/pt/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://{{DOMAIN}}/nl/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://{{DOMAIN}}/pl/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://{{DOMAIN}}/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://{{DOMAIN}}/uk/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://{{DOMAIN}}/tr/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://{{DOMAIN}}/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://{{DOMAIN}}/zh/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://{{DOMAIN}}/ko/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://{{DOMAIN}}/"/>
+  </url>
+  <url>
+    <loc>https://{{DOMAIN}}/en/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://{{DOMAIN}}/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://{{DOMAIN}}/en/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://{{DOMAIN}}/es/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://{{DOMAIN}}/de/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://{{DOMAIN}}/it/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://{{DOMAIN}}/pt/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://{{DOMAIN}}/nl/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://{{DOMAIN}}/pl/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://{{DOMAIN}}/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://{{DOMAIN}}/uk/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://{{DOMAIN}}/tr/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://{{DOMAIN}}/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://{{DOMAIN}}/zh/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://{{DOMAIN}}/ko/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://{{DOMAIN}}/"/>
+  </url>
+  <url>
+    <loc>https://{{DOMAIN}}/es/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://{{DOMAIN}}/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://{{DOMAIN}}/en/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://{{DOMAIN}}/es/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://{{DOMAIN}}/de/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://{{DOMAIN}}/it/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://{{DOMAIN}}/pt/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://{{DOMAIN}}/nl/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://{{DOMAIN}}/pl/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://{{DOMAIN}}/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://{{DOMAIN}}/uk/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://{{DOMAIN}}/tr/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://{{DOMAIN}}/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://{{DOMAIN}}/zh/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://{{DOMAIN}}/ko/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://{{DOMAIN}}/"/>
+  </url>
+  <url>
+    <loc>https://{{DOMAIN}}/de/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://{{DOMAIN}}/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://{{DOMAIN}}/en/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://{{DOMAIN}}/es/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://{{DOMAIN}}/de/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://{{DOMAIN}}/it/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://{{DOMAIN}}/pt/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://{{DOMAIN}}/nl/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://{{DOMAIN}}/pl/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://{{DOMAIN}}/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://{{DOMAIN}}/uk/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://{{DOMAIN}}/tr/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://{{DOMAIN}}/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://{{DOMAIN}}/zh/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://{{DOMAIN}}/ko/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://{{DOMAIN}}/"/>
+  </url>
+  <url>
+    <loc>https://{{DOMAIN}}/it/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://{{DOMAIN}}/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://{{DOMAIN}}/en/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://{{DOMAIN}}/es/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://{{DOMAIN}}/de/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://{{DOMAIN}}/it/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://{{DOMAIN}}/pt/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://{{DOMAIN}}/nl/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://{{DOMAIN}}/pl/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://{{DOMAIN}}/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://{{DOMAIN}}/uk/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://{{DOMAIN}}/tr/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://{{DOMAIN}}/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://{{DOMAIN}}/zh/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://{{DOMAIN}}/ko/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://{{DOMAIN}}/"/>
+  </url>
+  <url>
+    <loc>https://{{DOMAIN}}/pt/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://{{DOMAIN}}/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://{{DOMAIN}}/en/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://{{DOMAIN}}/es/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://{{DOMAIN}}/de/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://{{DOMAIN}}/it/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://{{DOMAIN}}/pt/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://{{DOMAIN}}/nl/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://{{DOMAIN}}/pl/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://{{DOMAIN}}/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://{{DOMAIN}}/uk/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://{{DOMAIN}}/tr/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://{{DOMAIN}}/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://{{DOMAIN}}/zh/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://{{DOMAIN}}/ko/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://{{DOMAIN}}/"/>
+  </url>
+  <url>
+    <loc>https://{{DOMAIN}}/nl/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://{{DOMAIN}}/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://{{DOMAIN}}/en/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://{{DOMAIN}}/es/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://{{DOMAIN}}/de/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://{{DOMAIN}}/it/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://{{DOMAIN}}/pt/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://{{DOMAIN}}/nl/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://{{DOMAIN}}/pl/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://{{DOMAIN}}/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://{{DOMAIN}}/uk/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://{{DOMAIN}}/tr/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://{{DOMAIN}}/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://{{DOMAIN}}/zh/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://{{DOMAIN}}/ko/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://{{DOMAIN}}/"/>
+  </url>
+  <url>
+    <loc>https://{{DOMAIN}}/pl/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://{{DOMAIN}}/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://{{DOMAIN}}/en/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://{{DOMAIN}}/es/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://{{DOMAIN}}/de/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://{{DOMAIN}}/it/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://{{DOMAIN}}/pt/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://{{DOMAIN}}/nl/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://{{DOMAIN}}/pl/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://{{DOMAIN}}/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://{{DOMAIN}}/uk/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://{{DOMAIN}}/tr/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://{{DOMAIN}}/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://{{DOMAIN}}/zh/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://{{DOMAIN}}/ko/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://{{DOMAIN}}/"/>
+  </url>
+  <url>
+    <loc>https://{{DOMAIN}}/ru/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://{{DOMAIN}}/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://{{DOMAIN}}/en/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://{{DOMAIN}}/es/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://{{DOMAIN}}/de/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://{{DOMAIN}}/it/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://{{DOMAIN}}/pt/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://{{DOMAIN}}/nl/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://{{DOMAIN}}/pl/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://{{DOMAIN}}/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://{{DOMAIN}}/uk/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://{{DOMAIN}}/tr/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://{{DOMAIN}}/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://{{DOMAIN}}/zh/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://{{DOMAIN}}/ko/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://{{DOMAIN}}/"/>
+  </url>
+  <url>
+    <loc>https://{{DOMAIN}}/uk/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://{{DOMAIN}}/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://{{DOMAIN}}/en/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://{{DOMAIN}}/es/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://{{DOMAIN}}/de/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://{{DOMAIN}}/it/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://{{DOMAIN}}/pt/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://{{DOMAIN}}/nl/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://{{DOMAIN}}/pl/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://{{DOMAIN}}/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://{{DOMAIN}}/uk/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://{{DOMAIN}}/tr/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://{{DOMAIN}}/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://{{DOMAIN}}/zh/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://{{DOMAIN}}/ko/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://{{DOMAIN}}/"/>
+  </url>
+  <url>
+    <loc>https://{{DOMAIN}}/tr/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://{{DOMAIN}}/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://{{DOMAIN}}/en/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://{{DOMAIN}}/es/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://{{DOMAIN}}/de/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://{{DOMAIN}}/it/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://{{DOMAIN}}/pt/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://{{DOMAIN}}/nl/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://{{DOMAIN}}/pl/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://{{DOMAIN}}/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://{{DOMAIN}}/uk/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://{{DOMAIN}}/tr/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://{{DOMAIN}}/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://{{DOMAIN}}/zh/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://{{DOMAIN}}/ko/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://{{DOMAIN}}/"/>
+  </url>
+  <url>
+    <loc>https://{{DOMAIN}}/ja/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://{{DOMAIN}}/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://{{DOMAIN}}/en/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://{{DOMAIN}}/es/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://{{DOMAIN}}/de/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://{{DOMAIN}}/it/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://{{DOMAIN}}/pt/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://{{DOMAIN}}/nl/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://{{DOMAIN}}/pl/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://{{DOMAIN}}/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://{{DOMAIN}}/uk/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://{{DOMAIN}}/tr/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://{{DOMAIN}}/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://{{DOMAIN}}/zh/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://{{DOMAIN}}/ko/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://{{DOMAIN}}/"/>
+  </url>
+  <url>
+    <loc>https://{{DOMAIN}}/zh/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://{{DOMAIN}}/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://{{DOMAIN}}/en/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://{{DOMAIN}}/es/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://{{DOMAIN}}/de/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://{{DOMAIN}}/it/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://{{DOMAIN}}/pt/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://{{DOMAIN}}/nl/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://{{DOMAIN}}/pl/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://{{DOMAIN}}/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://{{DOMAIN}}/uk/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://{{DOMAIN}}/tr/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://{{DOMAIN}}/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://{{DOMAIN}}/zh/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://{{DOMAIN}}/ko/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://{{DOMAIN}}/"/>
+  </url>
+  <url>
+    <loc>https://{{DOMAIN}}/ko/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://{{DOMAIN}}/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://{{DOMAIN}}/en/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://{{DOMAIN}}/es/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://{{DOMAIN}}/de/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://{{DOMAIN}}/it/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://{{DOMAIN}}/pt/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://{{DOMAIN}}/nl/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://{{DOMAIN}}/pl/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://{{DOMAIN}}/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://{{DOMAIN}}/uk/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://{{DOMAIN}}/tr/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://{{DOMAIN}}/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://{{DOMAIN}}/zh/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://{{DOMAIN}}/ko/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://{{DOMAIN}}/"/>
+  </url>
 </urlset>

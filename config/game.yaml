@@ -7,6 +7,18 @@ game:
   descriptions:                 # the description in the playground's languages (jumphp.net shows the visitor's)
     fr: "Il y a cent mille ans... Le jeu d'aventure préhistorique de Didier & Olivier Guillion (1986), porté en PHP depuis ses sources C (GPL v3)."
     en: "A hundred thousand years ago... The prehistoric adventure game by Didier & Olivier Guillion (1986), ported to PHP from its C sources (GPL v3)."
+    es: "Hace cien mil años... El juego de aventuras prehistórico de Didier y Olivier Guillion (1986), portado a PHP desde sus fuentes en C (GPL v3)."
+    de: "Vor hunderttausend Jahren ... Das prähistorische Abenteuerspiel von Didier und Olivier Guillion (1986), aus seinen C-Quellen nach PHP portiert (GPL v3)."
+    it: "Centomila anni fa... Il gioco di avventura preistorico di Didier e Olivier Guillion (1986), portato in PHP a partire dai sorgenti in C (GPL v3)."
+    pt: "Há cem mil anos... O jogo de aventura pré-histórico de Didier e Olivier Guillion (1986), adaptado para PHP a partir do código-fonte em C (GPL v3)."
+    nl: "Honderdduizend jaar geleden... Het prehistorische avonturenspel van Didier en Olivier Guillion (1986), vanuit de C-broncode omgezet naar PHP (GPL v3)."
+    pl: "Sto tysięcy lat temu... Prehistoryczna gra przygodowa Didiera i Oliviera Guillionów (1986), przeniesiona na PHP ze źródeł w C (GPL v3)."
+    ru: "Сто тысяч лет назад... Доисторическая приключенческая игра Дидье и Оливье Гийонов (1986), перенесённая на PHP из исходников на C (GPL v3)."
+    uk: "Сто тисяч років тому... Доісторична пригодницька гра Дідьє та Олів'є Гійонів (1986), перенесена на PHP з вихідних кодів на C (GPL v3)."
+    tr: "Yüz bin yıl önce... Didier ve Olivier Guillion'un tarih öncesi macera oyunu (1986), C kaynak kodundan PHP'ye aktarıldı (GPL v3)."
+    ja: "10万年前… Didier & Olivier Guillion による先史時代アドベンチャーゲーム(1986年)。C のソースコードから PHP に移植しました(GPL v3)。"
+    zh: "十万年前…… Didier 与 Olivier Guillion 兄弟于 1986 年创作的史前冒险游戏，由其 C 语言源代码移植到 PHP（GPL v3）。"
+    ko: "10만 년 전... Didier & Olivier Guillion의 선사 시대 어드벤처 게임(1986). C 소스를 PHP로 이식했습니다(GPL v3)."
   width: 640                    # the window of the original: 320x200 Atari ST coordinates x2
   height: 400
   scale: 2
