@@ -1,3 +1,6 @@
+> **⚠️ This repository has moved to [https://git.jumphp.net/jumphp/sapiensPhp](https://git.jumphp.net/jumphp/sapiensPhp)** — it is archived here (read-only) and no longer updated.
+> **⚠️ Ce dépôt a déménagé sur [https://git.jumphp.net/jumphp/sapiensPhp](https://git.jumphp.net/jumphp/sapiensPhp)** — il est archivé ici (lecture seule) et n'est plus mis à jour.
+
 # SAPIENS — PHP port
 
 *Il y a cent mille ans… / A hundred thousand years ago…*
